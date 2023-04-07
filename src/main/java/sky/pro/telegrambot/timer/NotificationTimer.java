@@ -28,6 +28,9 @@ public class NotificationTimer {
     public void run() {
         LocalDateTime dateTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
 
+//        SendMessage messageTask = new SendMessage(1035326262, dateTime.toString());
+//        telegramBot.execute(messageTask);
+
         if (!notificationRepository.findNotificationTaskByDateTimeEquals(dateTime).isEmpty()) {// условие что напоминание в БД найдено
 
             Collection<NotificationTask> notifications = notificationRepository.findNotificationTaskByDateTimeEquals(dateTime);
